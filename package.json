@@ -13,9 +13,11 @@
     "mongoose": "^6.0.14",
     "mongoose-slug-plugin": "^2.1.0",
     "morgan": "^1.10.0",
+    "multer": "^1.4.3",
     "passport": "^0.5.0",
     "passport-jwt": "^4.0.0",
-    "passport-local": "^1.0.0"
+    "passport-local": "^1.0.0",
+    "path": "^0.12.7"
   },
   "scripts": {
     "start": "nodemon app.js"

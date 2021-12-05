@@ -5,9 +5,10 @@ const morgan = require("morgan");
 const logger = require("./middleware/logger")
 const errorHandler = require("./middleware/errorHandler");
 const userRoutes = require("./apis/user/users.routes");
+const requestRoutes = require("./apis/request/request.routes")
 const passport = require("passport");
 const { localStrategy, jwtStrategy } = require("./middleware/passport");
-
+const path = require("path");
 
 
 
@@ -28,7 +29,9 @@ app.use(morgan("dev"));
 app.use(logger);
 
 // Routes
+app.use("/media", express.static(path.join(__dirname, "media")));
 app.use("/api", userRoutes);
+app.use("/api/request", requestRoutes);
 
 
 // Errors
