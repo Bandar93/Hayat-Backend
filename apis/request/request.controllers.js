@@ -35,3 +35,16 @@ exports.requestListFetch = async (req, res, next) => {
       next(error);
     }
   };
+
+ 
+  exports.requestDelete = async (req, res, next) => {
+    try {
+      if (!req.user._id.equals(req.request.owner)) {
+        return next({ status: 401, message: "Not the Owner" });
+      }
+      await Request.deleteOne(req.request);
+      res.status(204).end();
+    } catch (error) {
+      next(error);
+    }
+  };
