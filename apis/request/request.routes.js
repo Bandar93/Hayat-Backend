@@ -3,8 +3,9 @@ const {
   requestListFetch,
   fetchRequest,
   requestCreate,
+  requestDelete,
+  editRequest,
 } = require("./request.controllers");
-const { requestListFetch, fetchRequest, requestCreate, requestDelete } = require("./request.controllers");
 const router = express.Router();
 const passport = require("passport");
 
@@ -20,16 +21,6 @@ router.param("requestId", async (req, res, next, requestId) => {
 });
 
 // Routers
-    const request = await fetchRequest(requestId, next);
-    if (request) {
-      req.request = request;
-      next();
-    } else {
-      next({ status: 404, message: "Not Found!" });
-    }
-  });
-
-  // Routers
 router.get("/", requestListFetch);
 router.post(
   "/",
@@ -37,13 +28,16 @@ router.post(
   requestCreate
 );
 
+router.delete(
+  "/:requestId",
+  passport.authenticate("jwt", { session: false }),
+  requestDelete
+);
 
-router.delete("/:requestId",passport.authenticate("jwt", { session: false }), requestDelete);
-
-
-
-
-
-
+router.put(
+  "/:requestId",
+  passport.authenticate("jwt", { session: false }),
+  editRequest
+);
 
 module.exports = router;
