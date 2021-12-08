@@ -2,7 +2,10 @@ const Request = require("../../db/model/Request");
 
 exports.requestListFetch = async (req, res, next) => {
   try {
-    const requests = await Request.find().populate("owner");
+    const requests = await Request.find().populate({
+      path: "owner",
+      select: "-password",
+    });
     return res.json(requests);
   } catch (error) {
     next(error);
