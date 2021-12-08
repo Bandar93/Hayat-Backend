@@ -14,12 +14,14 @@ const userSchema = new Schema({
   civilId: {
     type: String,
   },
-  age : {
-    type : String,
+  age: {
+    type: String,
   },
   phone: {
     type: String,
   },
-
+  image: {
+    type: String,
+  },
 });
 module.exports = model("User", userSchema);
