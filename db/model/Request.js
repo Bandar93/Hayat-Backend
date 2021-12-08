@@ -14,9 +14,12 @@ const RequestSchema = Schema(
     bloodType: {
       type: String,
     },
+    // REVIEW: This should be in the user model
     gender: {
+      // REVIEW: gender should be enum, male or female
       type: String,
     },
+    // REVIEW: Why do you have the age, gender, civilId and phone here? The owner will fetch all this data for you
     age: {
       type: Number,
     },

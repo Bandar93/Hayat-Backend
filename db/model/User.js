@@ -11,15 +11,15 @@ const userSchema = new Schema({
   bloodType: {
     type: String,
   },
+  // REVIEW: civil id must be unique
   civilId: {
     type: String,
   },
-  age : {
-    type : String,
+  age: {
+    type: String,
   },
   phone: {
     type: String,
   },
-
 });
 module.exports = model("User", userSchema);
