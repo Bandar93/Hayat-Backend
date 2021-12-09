@@ -5,6 +5,7 @@ const {
   requestCreate,
   requestDelete,
   editRequest,
+  confirmDonation,
 } = require("./request.controllers");
 const router = express.Router();
 const passport = require("passport");
@@ -32,6 +33,11 @@ router.delete(
   "/:requestId",
   passport.authenticate("jwt", { session: false }),
   requestDelete
+);
+router.put(
+  "/:requestId",
+  passport.authenticate("jwt", { session: false }),
+  confirmDonation
 );
 
 router.put(

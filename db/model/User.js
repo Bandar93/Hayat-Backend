@@ -23,5 +23,9 @@ const userSchema = new Schema({
   image: {
     type: String,
   },
+  score: {
+    type: String,
+    default: "0",
+  },
 });
 module.exports = model("User", userSchema);

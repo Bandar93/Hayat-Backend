@@ -29,6 +29,10 @@ const RequestSchema = Schema(
     priority: {
       type: String,
     },
+    donate: {
+      type: Boolean,
+      default: false,
+    },
     owner: {
       type: Schema.Types.ObjectId,
       ref: "User",
