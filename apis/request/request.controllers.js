@@ -69,10 +69,14 @@ exports.editRequest = async (req, res, next) => {
 
 exports.confirmDonation = async (req, res, next) => {
   try {
-    const confirm = await Request.findByIdAndUpdate(req.request, {
-      new: true,
-      runValidators: true,
-    });
+    const confirm = await Request.findByIdAndUpdate(
+      req.request,
+      { donate: true },
+      {
+        new: true,
+        runValidators: true,
+      }
+    );
     return res.status(200).json(confirm);
   } catch (error) {
     next(error);
