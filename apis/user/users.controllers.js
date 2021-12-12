@@ -7,6 +7,7 @@ const generateToken = (user) => {
   const payload = {
     _id: user._id,
     name: user.name,
+    score: user.score,
     username: user.username,
     exp: Date.now() + JWT_EXPIRATION_MS,
   };
@@ -51,6 +52,32 @@ exports.updateProfile = async (req, res, next) => {
       runValidators: true,
     });
     return res.status(200).json(profile);
+  } catch (error) {
+    next(error);
+  }
+};
+
+// exports.changePassword = async (req, res, next) => {
+//   try {
+//     const newPass = await User.findByIdAndUpdate(
+//       req.user,
+//       { password: req.body },
+//       { new: true, runValidators: true }
+//     );
+//     return res.status(200).json(newPass);
+//   } catch (error) {
+//     next(error);
+//   }
+// };
+
+exports.updateScore = async (req, res, next) => {
+  try {
+    const newScore = await User.findByIdAndUpdate(
+      req.user,
+      { $inc: { score: 1 } },
+      { new: true, runValidators: true }
+    );
+    return res.status(200).json(newScore);
   } catch (error) {
     next(error);
   }
