@@ -6,6 +6,7 @@ const { JWT_EXPIRATION_MS, JWT_SECRET } = require("../../config/keys");
 const generateToken = (user) => {
   const payload = {
     _id: user._id,
+    name: user.name,
     username: user.username,
     exp: Date.now() + JWT_EXPIRATION_MS,
   };
