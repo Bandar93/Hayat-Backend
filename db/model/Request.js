@@ -28,6 +28,7 @@ const RequestSchema = Schema(
     },
     priority: {
       type: String,
+      default: "NORMAL"
     },
     donate: {
       type: Boolean,
