@@ -8,6 +8,10 @@ const generateToken = (user) => {
     _id: user._id,
     name: user.name,
     score: user.score,
+    bloodType: user.bloodType,
+    civilId: user.civilId,
+    age: user.age,
+    phone: user.phone,
     username: user.username,
     exp: Date.now() + JWT_EXPIRATION_MS,
   };
