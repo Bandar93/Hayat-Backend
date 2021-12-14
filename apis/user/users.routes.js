@@ -21,14 +21,13 @@ router.post(
 router.put(
   "/:userId",
   passport.authenticate("jwt", { session: false }),
-  updateScore
+  updateProfile
 );
 
 router.put(
   "/:userId",
   passport.authenticate("jwt", { session: false }),
-  upload.single("image"),
-  updateProfile
+  updateScore
 );
 
 // router.put(
