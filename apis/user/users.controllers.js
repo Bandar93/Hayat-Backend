@@ -46,11 +46,6 @@ exports.updateProfile = async (req, res, next) => {
       return next({ status: 401, message: "Not the Owner" });
     }
 
-    if (req.file) {
-      req.body.image = `/media/${req.file.filename}`;
-      req.body.image = req.body.image.replace("\\", "/");
-    }
-
     const profile = await User.findByIdAndUpdate(req.user, req.body, {
       new: true,
       runValidators: true,
