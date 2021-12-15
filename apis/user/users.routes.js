@@ -24,7 +24,7 @@ router.put(
 );
 
 router.put(
-  "/score",
+  "/:userId/score",
   passport.authenticate("jwt", { session: false }),
   updateScore
 );
