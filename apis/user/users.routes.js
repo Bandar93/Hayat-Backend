@@ -7,7 +7,6 @@ const {
   changePassword,
 } = require("./users.controllers");
 const passport = require("passport");
-const upload = require("../../middleware/multer");
 const router = express.Router();
 
 router.post("/signup", signup);
@@ -25,7 +24,7 @@ router.put(
 );
 
 router.put(
-  "/:userId",
+  "/score",
   passport.authenticate("jwt", { session: false }),
   updateScore
 );

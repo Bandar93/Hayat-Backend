@@ -34,6 +34,7 @@ router.delete(
   passport.authenticate("jwt", { session: false }),
   requestDelete
 );
+
 router.put(
   "/:requestId",
   passport.authenticate("jwt", { session: false }),
@@ -41,7 +42,7 @@ router.put(
 );
 
 router.put(
-  "/:requestId",
+  "/:requestId/edit",
   passport.authenticate("jwt", { session: false }),
   editRequest
 );

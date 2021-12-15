@@ -18,17 +18,17 @@ const RequestSchema = Schema(
       type: String,
     },
     age: {
-      type: Number,
+      type: String,
     },
     civilId: {
-      type: Number,
+      type: String,
     },
     phone: {
-      type: Number,
+      type: String,
     },
     priority: {
       type: String,
-      default: "NORMAL"
+      default: "NORMAL",
     },
     donate: {
       type: Boolean,
