@@ -38,6 +38,9 @@ const RequestSchema = Schema(
       type: Schema.Types.ObjectId,
       ref: "User",
     },
+    location: {
+      type: String,
+    },
   },
   { timestamps: true }
 );
